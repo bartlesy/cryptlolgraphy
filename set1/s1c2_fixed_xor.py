@@ -1,14 +1,16 @@
 import binascii
 import base64
 
+
 def fixed_xor(str1, str2):
     bytes1 = bytes.fromhex(str1)
     bytes2 = bytes.fromhex(str2)
     # decoded_str = ''.join([chr(b1 ^ b2) for b1, b2 in zip(bytearray(bytes1), bytearray(bytes2))])
-    decoded_str = [b1 ^ b2 for b1, b2 in zip(bytearray(bytes1), bytearray(bytes2))]
+    decoded_str = [b1 ^ b2 for b1, b2 in zip(
+        bytearray(bytes1), bytearray(bytes2))]
     decoded_str = bytearray(decoded_str)
     return binascii.hexlify(decoded_str)
-    #return base64.b64encode(decoded_str)
+    # return base64.b64encode(decoded_str)
 
 
 if __name__ == '__main__':

@@ -2,6 +2,7 @@
 from itertools import cycle
 import binascii
 
+
 def rep_xor(in_txt, key=b'ICE'):
     in_bytes = bytes(in_txt, 'utf-8')
     res = bytearray([b1 ^ b2 for b1, b2 in zip(in_bytes, cycle(key))])

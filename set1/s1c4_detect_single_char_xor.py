@@ -17,4 +17,3 @@ def hax_them_lines(fp):
 if __name__ == '__main__':
     fp = './4.txt'
     print(hax_them_lines(fp))
-

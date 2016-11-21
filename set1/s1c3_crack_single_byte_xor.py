@@ -44,7 +44,7 @@ def score_output(xored_bytes):
 def hax_the_gibson(input_str):
     in_bytes = bytes.fromhex(input_str)
     scores = {key: [score_output(xor_singlechar(in_bytes, key)),
-                  xor_singlechar(in_bytes, key)] for key in range(256)}
+                    xor_singlechar(in_bytes, key)] for key in range(256)}
     best = max(scores, key=lambda x: scores.get(x)[0])
     return best, scores[best]
 
