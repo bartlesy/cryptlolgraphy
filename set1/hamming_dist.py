@@ -2,6 +2,15 @@
 import binascii
 
 
+def get_bytes(in_str):
+    if isinstance(in_str, bytes):
+        return in_str
+    try:
+        return bytes.fromhex(in_str)
+    except:
+        return bytes(in_str, 'utf-8')
+
+
 def str_2_bin(in_str):
     in_bytes = bytes(in_str, 'utf-8')
     return bin(int(binascii.hexlify(in_bytes), 16))

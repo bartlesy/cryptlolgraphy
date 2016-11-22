@@ -4,7 +4,10 @@ import binascii
 
 
 def rep_xor(in_txt, key=b'ICE'):
-    in_bytes = bytes(in_txt, 'utf-8')
+    if isinstance(in_txt, str):
+        in_bytes = bytes(in_txt, 'utf-8')
+    else:
+        in_bytes = in_txt
     res = bytearray([b1 ^ b2 for b1, b2 in zip(in_bytes, cycle(key))])
     return binascii.hexlify(res)
 
